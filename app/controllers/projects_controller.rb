@@ -11,8 +11,11 @@ class ProjectsController < ApplicationController
     def create 
       @project = Project.new(project_params)
       @project.save
-      redirect_to @projects
-      
+      render json: {id: @project[:id]}
+
+      # redirect_to @projects
+      #you need to send json back if you want to use it. otherwise it will return basically true or false
+      #not the object because you need to send json back so it can read it.
     end
 
 
@@ -24,13 +27,21 @@ class ProjectsController < ApplicationController
 
     def edit 
       @project = Project.find(params[:id])
+      puts params[:id]
     end
 
     
     def update 
       @project = Project.find(params[:id])
+
+      puts params[:id]
+
       @project.update(project_params)
-      redirect_to @project
+
+      render json: @project
+
+
+
     end
 
 
@@ -45,7 +56,7 @@ class ProjectsController < ApplicationController
     private
   
     def project_params
-      params.permit(:title, :description, :image_urlFirst, :image_urlSecond)
+      params.permit(:id, :title, :description, :image_urlFirst, :image_urlSecond)
     end
   end
   
