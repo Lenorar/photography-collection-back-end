@@ -22,6 +22,7 @@ gem 'puma', '~> 3.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise_token_auth'
 
 
 

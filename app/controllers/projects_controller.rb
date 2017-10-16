@@ -40,8 +40,6 @@ class ProjectsController < ApplicationController
 
       render json: @project
 
-
-
     end
 
 
@@ -49,7 +47,6 @@ class ProjectsController < ApplicationController
     def destroy 
         project = Project.find(params[:id])
         project.destroy
-        # redirect_to @projects
         
     end
 

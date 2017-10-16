@@ -19,6 +19,12 @@ class ImagesController < ApplicationController
     render json: @images
   end
 
+  def destroy 
+    image = Image.find(params[:id])
+    image.destroy
+    # redirect_to @projects
+    
+  end
   private
   
   # def image_params
